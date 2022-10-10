@@ -5,9 +5,14 @@ import TodoList from './TodoList';
 const LOCAL_STORAGE_KEY = 'todolist'
 
 function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || []);
+  const [todos, setTodos] = useState([]);
   const todoNameRef = useRef();
 
+  useEffect(() => {
+    const storedTodo = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    if (storedTodo) setTodos(storedTodo);
+  }, []);
+  
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
