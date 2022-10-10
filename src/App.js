@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import TodoList from './TodoList';
 
 function App() {
@@ -6,6 +7,14 @@ function App() {
   const todoNameRef = useRef();
 
   function handleAddTodo(event) {
+    const name = todoNameRef.current.value;
+    if (name === '') return
+    setTodos(currentTodo => [...currentTodo, createTodo(name)])
+    todoNameRef.current.value = null;
+  }
+
+  function createTodo(todoName) {
+    return {id: uuidv4(), name: todoName, complete: false}
   }
 
   return (
