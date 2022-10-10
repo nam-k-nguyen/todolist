@@ -26,9 +26,16 @@ function App() {
 
   function createTodo(todoName) {return {id: uuidv4(), name: todoName, complete: false}}
 
+  function toggleTodo(id) { 
+    const newTodos = [...todos];
+    const todo = newTodos.find(todo => todo.id === id);
+    todo.complete = !todo.complete;
+    setTodos(newTodos);
+  }
+
   return (
     <>
-      <TodoList todos={todos} />
+      <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
       <button>Clear Todos</button>
