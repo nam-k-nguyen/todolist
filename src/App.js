@@ -24,6 +24,10 @@ function App() {
     todoNameRef.current.value = null;
   }
 
+  function handleClearTodo() {setTodos(todoLeft())}
+  
+  function todoLeft() {return todos.filter(todo => !todo.complete)}
+  
   function createTodo(todoName) {return {id: uuidv4(), name: todoName, complete: false}}
 
   function toggleTodo(id) { 
@@ -38,8 +42,8 @@ function App() {
       <TodoList todos={todos} toggleTodo={toggleTodo}/>
       <input ref={todoNameRef} type="text" />
       <button onClick={handleAddTodo}>Add Todo</button>
-      <button>Clear Todos</button>
-      <div>0 left to do</div>
+      <button onClick={handleClearTodo}>Clear Todos</button>
+      <div>{todoLeft().length} left to do</div>
     </>
   );
 }
