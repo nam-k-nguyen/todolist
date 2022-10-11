@@ -1,1 +1,49 @@
+.container {
+    background-color: white;
+    color: black;
+    border: rgb(179, 184, 192) 1px solid;
+    height: max-content;
+    width: calc(100% - 10px);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+}
+
+input[type="checkbox"] {
+    height: 0;
+    width: 20px;
+}
+
+input[type="checkbox"]::before {
+    display: block;
+    color: white;
+    background: rgb(175, 140, 86);
+    font-weight: 700;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    content: '';
+    text-align: center;
+}
+
+input[type="checkbox"]:checked:before {
+    content: '✓';
+}
+
+.name {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px 10px 0px;
+    font-weight: 400;
+}
 
