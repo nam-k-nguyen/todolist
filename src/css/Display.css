@@ -1,0 +1,17 @@
+.display_container {
+    background: #d1c7bb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task_left_container {
+    width: 100%;
+    text-align: center;
+    padding: 5px 0 5px 0;
+}
+
+.task_left_number {
+    background: rgb(175, 140, 86);;
+    color: white;
+}
