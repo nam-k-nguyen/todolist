@@ -1,0 +1,18 @@
+.todo_creator_container {
+    background: #d1c7bb;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 10px 0 5px 0;
+}
+
+.todo_creator_container > input {
+    width: 46%;
+    border: none;
+    padding: 5px;
+}
+
+.todo_creator_container > input:focus {
+    outline: rgb(175, 140, 86) 2px solid;
+}
