@@ -56,11 +56,13 @@ function App() {
 
   return (
     <>
-      <TodoList todos={todos} toggleTodo={toggleTodo}/>
-      <input ref={todoNameRef} type="text" />
-      <button onClick={handleAddTodo}>Add Todo</button>
-      <button onClick={handleClearTodo}>Clear Finished</button>
-      <div>{todoLeft().length} left to do</div>
+      <Display numberOfTaskLeft={todoLeft().length} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <TodoCreator />
+      <Control
+        handleAddTodo={handleAddTodo}
+        handleClearTodo={handleClearTodo}
+      />
     </>
   );
 }
