@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoList from './TodoList';
 import './css/App.css';
@@ -6,14 +6,21 @@ import './css/App.css';
 const LOCAL_STORAGE_KEY = 'todolist'
 
 function App() {
-  const [todos, setTodos] = useState([]);
-  const todoNameRef = useRef();
 
+  // 
+  // HOOKS
+  // 
+
+  // State to store every todo item added by user
+  const [todos, setTodos] = useState([]);
+
+  // Load todo list from local storage 
   useEffect(() => {
     const storedTodo = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
     if (storedTodo) setTodos(storedTodo);
   }, []);
-  
+
+  // Store the todo list into local storage 
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
   }, [todos])
@@ -23,6 +30,11 @@ function App() {
     if (name === '') return
     setTodos(currentTodo => [...currentTodo, createTodo(name)])
     todoNameRef.current.value = null;
+  // 
+  // FUNCTIONS 
+  // 
+
+  // Function to add a new todo given the name and description
   }
 
   function handleClearTodo() {setTodos(todoLeft())}
@@ -30,8 +42,12 @@ function App() {
   function todoLeft() {return todos.filter(todo => !todo.complete)}
   
   function createTodo(todoName) {return {id: uuidv4(), name: todoName, complete: false}}
+  // Function to clear the finished todos
+  // Function to return the number of uncleared todos
+  // Function to generate the todo object given name and description
 
   function toggleTodo(id) { 
+  // Function to change the complete state of a todo given its id
     const newTodos = [...todos];
     const todo = newTodos.find(todo => todo.id === id);
     todo.complete = !todo.complete;
