@@ -20,8 +20,32 @@ body {
     background: #97949c;
     padding: none;
     margin: none;
-    height: 65%;
+    height: 75%;
     width: 65%;
     border-radius: 8px;
     box-shadow: 1px 1px 3px black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #d1c7bb;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(175, 140, 86);
+  }
