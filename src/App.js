@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TodoList from './TodoList';
+import Display from './Display';
+import Control from './Control';
+import TodoCreator from './TodoCreator';
 import './css/App.css';
 
 const LOCAL_STORAGE_KEY = 'todolist'
@@ -37,17 +40,18 @@ function App() {
   // Function to add a new todo given the name and description
   }
 
-  function handleClearTodo() {setTodos(todoLeft())}
   
   function todoLeft() {return todos.filter(todo => !todo.complete)}
   
   function createTodo(todoName) {return {id: uuidv4(), name: todoName, complete: false}}
   // Function to clear the finished todos
+  function handleClearTodo() { setTodos(todoLeft()) }
+
   // Function to return the number of uncleared todos
   // Function to generate the todo object given name and description
 
-  function toggleTodo(id) { 
   // Function to change the complete state of a todo given its id
+  function toggleTodo(id) {
     const newTodos = [...todos];
     const todo = newTodos.find(todo => todo.id === id);
     todo.complete = !todo.complete;
