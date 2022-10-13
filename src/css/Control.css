@@ -23,5 +23,5 @@
 }
 
 .control_container > button:focus {
-    background: #957d63;
+    outline: black 1px solid;
 }
